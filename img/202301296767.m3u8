@@ -1,0 +1,10 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-ALLOW-CACHE:YES
+#EXT-X-TARGETDURATION:9
+#EXTINF:8.448022,
+https://edu-30130.sz.gfp.tencent-cloud.com/ide/1e72d436730582900d0b86ff3eb5b855.png
+#EXTINF:2.533333,
+https://edu-30130.sz.gfp.tencent-cloud.com/ide/4b09e9272eb2a2700be9029ce7ae9a51.png
+#EXT-X-ENDLIST
