@@ -1,0 +1,54 @@
+<!DOCTYPE html><!-- This web page is copied by "https://bazhan.wang" --><html lang="zh"><head><meta name="360-analysis-id" content="1l3b2z2x2y2w1h"><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏--><meta charset="utf-8"><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  
+  <meta http-equiv="x-ua-compatible" content="IE=edge"><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  <meta name="referrer" content="never"><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+<link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  <title>am</title>
+  <link rel="stylesheet" href="css/aliplayer-min.css">
+  <script type="text/javascript" charset="utf-8" src="js/aliplayer-min.js"></script><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  <script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  <script>
+
+
+
+//var test = window.location.href;
+//test = test+".json";
+
+
+</script><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+  <style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0);
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: hidden
+    }
+    * {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      text-decoration: none
+    }
+    #player-con {
+      position: inherit;
+	  height: 95%;
+	  position:absolute;
+	  top:0;
+    }
+  </style><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+</head>
+<body>
+
+<div class="prism-player" id="player-con"></div>
+<script src="js/e41513eb4583b3060fe80c6f0ea5965e.js"></script><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
+<div id="dibu">
+	<button id="tzan" onclick="tz()"></button>
+</div>
+
+
+</body><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏--></html><!--!‫‭‭‭‫‏‬‏‏‬‏‭‬‏‎‬‏‬‫‬‏-->
