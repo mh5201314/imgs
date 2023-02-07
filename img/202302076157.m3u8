@@ -1,0 +1,403 @@
+-- MySQL dump 10.13  Distrib 5.6.50, for Linux (x86_64)
+--
+-- Host: localhost    Database: qiepian
+-- ------------------------------------------------------
+-- Server version	5.6.50-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `api`
+--
+
+DROP TABLE IF EXISTS `api`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `api` (
+  `userId` mediumtext NOT NULL,
+  `api` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `api`
+--
+
+LOCK TABLES `api` WRITE;
+/*!40000 ALTER TABLE `api` DISABLE KEYS */;
+/*!40000 ALTER TABLE `api` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file`
+--
+
+DROP TABLE IF EXISTS `file`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `file` (
+  `fileId` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `doubanId` int(11) NOT NULL,
+  `fileType` varchar(10) NOT NULL,
+  `fileSortName` varchar(255) NOT NULL,
+  `fileName` varchar(255) NOT NULL,
+  `fileSha` varchar(255) NOT NULL,
+  `fileUrl` mediumtext NOT NULL,
+  `from` mediumtext NOT NULL,
+  `resolute` mediumtext NOT NULL,
+  `num` mediumtext NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`fileId`),
+  UNIQUE KEY `fileId` (`fileId`),
+  UNIQUE KEY `unique_all` (`fileSha`),
+  KEY `index_all` (`userId`,`doubanId`,`fileName`,`fileSortName`,`time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file`
+--
+
+LOCK TABLES `file` WRITE;
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fileDelete`
+--
+
+DROP TABLE IF EXISTS `fileDelete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fileDelete` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` mediumtext NOT NULL,
+  `fileSha` mediumtext NOT NULL,
+  `time` mediumtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fileDelete`
+--
+
+LOCK TABLES `fileDelete` WRITE;
+/*!40000 ALTER TABLE `fileDelete` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fileDelete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `goods`
+--
+
+DROP TABLE IF EXISTS `goods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `buy_type` int(11) NOT NULL,
+  `goods_name` varchar(30) NOT NULL,
+  `goods_img` varchar(255) NOT NULL,
+  `goods_introduction` mediumtext NOT NULL,
+  `goods_price` int(11) NOT NULL,
+  `goods_month` int(11) NOT NULL,
+  `goods_type` varchar(10) NOT NULL,
+  `goods_content` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `goods`
+--
+
+LOCK TABLES `goods` WRITE;
+/*!40000 ALTER TABLE `goods` DISABLE KEYS */;
+/*!40000 ALTER TABLE `goods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `goods_bought`
+--
+
+DROP TABLE IF EXISTS `goods_bought`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `goods_bought` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `goods_id` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `goods_bought`
+--
+
+LOCK TABLES `goods_bought` WRITE;
+/*!40000 ALTER TABLE `goods_bought` DISABLE KEYS */;
+/*!40000 ALTER TABLE `goods_bought` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `playNum` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `index_all` (`userId`,`time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log`
+--
+
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notice`
+--
+
+DROP TABLE IF EXISTS `notice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notice` (
+  `topic` mediumtext NOT NULL,
+  `content` mediumtext NOT NULL,
+  `time` mediumtext NOT NULL,
+  `vip` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notice`
+--
+
+LOCK TABLES `notice` WRITE;
+/*!40000 ALTER TABLE `notice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `price`
+--
+
+DROP TABLE IF EXISTS `price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `teamId` mediumtext NOT NULL,
+  `price` mediumtext NOT NULL COMMENT '价格',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `price`
+--
+
+LOCK TABLES `price` WRITE;
+/*!40000 ALTER TABLE `price` DISABLE KEYS */;
+/*!40000 ALTER TABLE `price` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `team`
+--
+
+DROP TABLE IF EXISTS `team`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `team` (
+  `teamId` int(11) NOT NULL AUTO_INCREMENT,
+  `teamName` mediumtext NOT NULL,
+  `masterId` mediumtext NOT NULL,
+  `maxUserNum` mediumtext NOT NULL,
+  `inviteKey` mediumtext NOT NULL,
+  PRIMARY KEY (`teamId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `team`
+--
+
+LOCK TABLES `team` WRITE;
+/*!40000 ALTER TABLE `team` DISABLE KEYS */;
+/*!40000 ALTER TABLE `team` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `teamApply`
+--
+
+DROP TABLE IF EXISTS `teamApply`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teamApply` (
+  `userId` mediumtext NOT NULL COMMENT '用户ID',
+  `teamId` mediumtext NOT NULL COMMENT '申请的teamId',
+  `time` mediumtext NOT NULL COMMENT '申请时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teamApply`
+--
+
+LOCK TABLES `teamApply` WRITE;
+/*!40000 ALTER TABLE `teamApply` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teamApply` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `teamType`
+--
+
+DROP TABLE IF EXISTS `teamType`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teamType` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `maxUser` mediumtext NOT NULL,
+  `price` mediumtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teamType`
+--
+
+LOCK TABLES `teamType` WRITE;
+/*!40000 ALTER TABLE `teamType` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teamType` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `token`
+--
+
+DROP TABLE IF EXISTS `token`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `token` (
+  `userId` mediumtext NOT NULL,
+  `token` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `token`
+--
+
+LOCK TABLES `token` WRITE;
+/*!40000 ALTER TABLE `token` DISABLE KEYS */;
+/*!40000 ALTER TABLE `token` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trade`
+--
+
+DROP TABLE IF EXISTS `trade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trade` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `out_trade_no` mediumtext NOT NULL,
+  `total_amount` mediumtext NOT NULL,
+  `buyer_logon_id` mediumtext NOT NULL COMMENT '买家支付宝账号',
+  `userId` mediumtext NOT NULL,
+  `gmt_create` mediumtext NOT NULL COMMENT '交易创建时间',
+  `gmt_payment` mediumtext NOT NULL COMMENT '交易完成时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trade`
+--
+
+LOCK TABLES `trade` WRITE;
+/*!40000 ALTER TABLE `trade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` mediumtext NOT NULL,
+  `password` mediumtext NOT NULL,
+  `phone` mediumtext NOT NULL,
+  `teamId` int(11) NOT NULL,
+  `money` mediumtext NOT NULL,
+  `lastTime` bigint(11) NOT NULL,
+  `regIp` mediumtext NOT NULL,
+  `regTime` int(11) NOT NULL,
+  `status` mediumtext NOT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `teamId` (`teamId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'qiepian'
+--
+
+--
+-- Dumping routines for database 'qiepian'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-02-17 14:32:19
