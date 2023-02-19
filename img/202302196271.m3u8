@@ -1,0 +1,10 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-ALLOW-CACHE:YES
+#EXT-X-TARGETDURATION:9
+#EXTINF:8.448022,
+https://u2-203.ecukwai.com/bs2/image-kwaishop-product/item-3182427168-3a7ffa685516464ca98cef4e3aaa86c8.jpg
+#EXTINF:2.533333,
+https://u1-203.ecukwai.com/bs2/image-kwaishop-product/item-3182427168-927dfc6167394275b9b3596cfab41421.jpg
+#EXT-X-ENDLIST
